@@ -2,7 +2,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open('app-cache').then((cache) => {
         return cache.addAll([
-          'https://script.google.com/macros/s/AKfycbwfKshxG_RCOnPbjnEp-fowEkxw3TQtVVnFr8mq4ysf-MafxbErhZwnW79ofZ7lXorDzg/exec',  // Your web app URL
+          'https://script.google.com/macros/s/AKfycbzYe2lqKOk20dtRmgk5lmUsQswxs41wP-OVf5v2gWo9WYa73qaH2jofd9U2NqFN2VGOMg/exec',  // Your web app URL
           '/offline.html',  // Cache your offline page
           '/icons/icon-192x192.png',  // Cache icon
           '/icons/icon-512x512.png',
