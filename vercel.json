@@ -3,13 +3,15 @@
     "builds": [
       {
         "src": "index.html",
-        "use": "@vercel/static"
+        "use": "@vercel/static",
+        "config": { "distDir": "." }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/index.html"
+        "dest": "/index.html",
+        "status": 200
       }
     ]
   }
