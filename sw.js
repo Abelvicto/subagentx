@@ -2,7 +2,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('app-cache').then((cache) => {
       return cache.addAll([
-        '/Index.html',                         // Cache root URL
+        '/',                         // Cache root URL
         '/offline.html',             // Cache offline page
         '/icons/icon-192x192.png',   // Cache icons
         '/icons/icon-512x512.png',
