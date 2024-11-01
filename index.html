@@ -7,38 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     
-    <meta name="author/creator" content="bpwebs"> 
-    <meta name="author source link"  content="https://www.bpwebs.com/crud-operations-on-google-sheets-with-online-forms/">
-    <meta name="Modified added features by"    content="Robert L. Hortal">
-    <meta name="Modifier Source link"  content="https://datatables.net/">
-    <meta name="Modifier Source link"  content="https://datatables.net/examples/index">
-    <meta name="robots"         content="index, follow">
+  
+     <link rel="stylesheet" href="./style.css"/>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMh8x9Hylj8ttU8j/IAzIpy59Y1dC22xlD2KZ2k" crossorigin="anonymous">
+     <link rel="manifest" href="./manifest.json">
 
-
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-
-     <link rel="stylesheet" href="style.css"/>
-
-     <link rel="manifest" href="/manifest.json">
-
-    <script language="JavaScript" src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
    
-     <!-- CSS STYLING BOOTSTRAP DATATABLE --->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.bootstrap.min.css" />
-    <link href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/rowgroup/1.1.3/css/rowGroup.bootstrap.min.css" rel="stylesheet">
-    <link href=" https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+   
 
    
 
@@ -56,6 +31,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
 
       <script src="https://cdn.tailwindcss.com"></script>
+
+
+
       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -2559,25 +2537,30 @@
 <!-- Script to register the Service Worker -->
 <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-      .then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
+      navigator.serviceWorker.register('./sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
     }
   </script>
-
+  
   <!-- Install prompt handling -->
   <script>
     let deferredPrompt;
+    
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      document.getElementById('installBtn').style.display = 'block';
+      const installBtn = document.getElementById('installBtn');
+      if (installBtn) {
+        installBtn.style.display = 'block';
+      }
     });
-
-    document.getElementById('installBtn').addEventListener('click', async () => {
+  
+    document.getElementById('installBtn')?.addEventListener('click', async () => {
       if (deferredPrompt) {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
@@ -2586,7 +2569,7 @@
       }
     });
   </script>
-
+  
 
 
 
